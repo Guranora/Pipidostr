@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Ксасік і зеончік</title>
+    <script>
+        function playSound() {
+            const audio = document.getElementById("sound");
+            audio.play();
+
+            // Приховуємо кнопку після натискання
+            document.getElementById("soundButton").style.display = "none";
+        }
+    </script>
+</head>
+<body style="text-align: center; background-color: #ffe;">
+    <h1>Потужний зеончік</h1>
+
+    <img src="funny.gif" alt="жарт" style="max-width: 80%; height: auto;">
+
+    <audio id="sound" loop>
+        <source src="funny.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує аудіо 😢
+    </audio>
+
+    <br><br>
+    <button id="soundButton" onclick="playSound()" style="font-size: 20px;">🔊 Запусти звук</button>
+</body>
+</html>
