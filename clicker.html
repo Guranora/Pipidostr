@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Клікер приколів</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #eef;
+            font-family: sans-serif;
+        }
+
+        #clicks {
+            font-size: 28px;
+            margin: 20px;
+        }
+
+        #funZone {
+            margin-top: 30px;
+        }
+
+        .joke {
+            margin: 10px;
+            animation: pop 0.4s ease;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖱️ Клікай і лови приколи!</h1>
+    <button onclick="addClick()" style="font-size: 24px; padding: 10px 20px;">Клік!</button>
+    <div id="clicks">Кліків: 0</div>
+
+    <div id="funZone"></div>
+
+    <!-- Звук -->
+    <audio id="clickSound">
+        <source src="https://www.myinstants.com/media/sounds/vine-boom.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let count = 0;
+        const jokes = [
+            "Потужно!",
+            "Social credits -1000",
+            "Social credits +10000",
+            "You are pipidastr",
+            "Social credits +1000️"
+        ];
+
+        const images = [
+            "https://media1.tenor.com/m/6RyhJWX5Iz8AAAAd/elevator-elevator-figjt.gif",
+            "https://media1.tenor.com/m/-snl1bYnzh8AAAAd/kilo.gif",
+            "https://cdn.discordapp.com/attachments/1205569816014884895/1305223842763112518/document_5226591053062098568_3.gif?ex=682eb72e&is=682d65ae&hm=0b4683adc566916b0d7bbccfc7fdc73895cc7c4bca210b2a76a6ccc447be9a87&",
+            "https://cdn.discordapp.com/attachments/1286663061809397760/1369012015481360485/eNcH7rW.gif?ex=682f674b&is=682e15cb&hm=f1ea84da5c5be9a428a462e799d28990e44d95908f5f45e75dcf131cffd2cc53&",
+            "https://media.discordapp.net/attachments/1069222300815208532/1108295480233951243/5D030010-3D22-423A-A408-C8B08E48D165-1.gif?ex=682ed299&is=682d8119&hm=7abf206f42d41b52480334c2da85cb9a8e05a06097af7d942e38759e159a2233&"
+        ];
+
+        function addClick() {
+            count++;
+            document.getElementById("clicks").innerText = "Кліків: " + count;
+
+            // Відтворити звук
+            document.getElementById("clickSound").currentTime = 0;
+            document.getElementById("clickSound").play();
+
+            // Створити прикол
+            const zone = document.getElementById("funZone");
+
+            const joke = jokes[Math.floor(Math.random() * jokes.length)];
+            const imgSrc = images[Math.floor(Math.random() * images.length)];
+
+            const div = document.createElement("div");
+            div.className = "joke";
+
+            const text = document.createElement("p");
+            text.innerText = joke;
+
+            const img = document.createElement("img");
+            img.src = imgSrc;
+            img.alt = "Прикол";
+
+            div.appendChild(text);
+            div.appendChild(img);
+
+            zone.prepend(div);
+        }
+    </script>
+</body>
+</html>
