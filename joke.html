@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Ксасік і зеончік</title>
-    <script>
-        function playSound() {
-            const audio = document.getElementById("sound");
-            audio.play();
-            document.getElementById("soundButton").style.display = "none";
-        }
-    </script>
+  <meta charset="UTF-8">
+  <title>Ксасік і зеончік</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffd700, #0057b7);
+      font-family: 'Comic Sans MS', cursive;
+      color: #fff;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      font-size: 48px;
+      text-shadow: 2px 2px 10px #000;
+    }
+
+    img {
+      max-width: 80%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    button, a.button-link {
+      display: inline-block;
+      margin: 15px;
+      padding: 15px 25px;
+      font-size: 22px;
+      color: #fff;
+      background-color: #004aad;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ffd700;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    button:hover, a.button-link:hover {
+      background-color: #003280;
+      transform: scale(1.05);
+    }
+  </style>
+  <script>
+    function playSound() {
+      const audio = document.getElementById("sound");
+      audio.play();
+      document.getElementById("soundButton").style.display = "none";
+    }
+  </script>
 </head>
-<body style="text-align: center; background-color: #ffe;">
-    <h1>Потужний зеончік</h1>
+<body>
+  <h1>Потужний зеончік</h1>
 
-    <img src="funny.gif" alt="жарт" style="max-width: 80%; height: auto;">
+  <img src="funny.gif" alt="жарт">
 
-    <audio id="sound" loop>
-        <source src="funny.mp3" type="audio/mpeg">
-        Ваш браузер не підтримує аудіо 😢
-    </audio>
+  <audio id="sound" loop>
+    <source src="funny.mp3" type="audio/mpeg">
+    Ваш браузер не підтримує аудіо 😢
+  </audio>
 
-    <br><br>
-    <button id="soundButton" onclick="playSound()" style="font-size: 20px;">🔊 Запусти звук</button>
+  <br><br>
+  <button id="soundButton" onclick="playSound()">🔊 Запусти звук</button>
 
-    <hr style="margin: 40px auto; width: 50%;">
+  <hr style="margin: 40px; border: 2px solid #fff;">
 
-    <h2>🔽 Ще приколи нижче!</h2>
-
-    <a href="kcas.html" style="font-size: 22px; display: block; margin: 15px;">💥 Kcas</a>
-    <a href="spin.html" style="font-size: 22px; display: block; margin: 15px;">🌀 Ковбаска</a>
+  <h2>🚀 Інші приколи:</h2>
+  <a href="kcas.html" class="button-link">💥 KCAS Вибух</a>
+  <a href="spin.html" class="button-link">🌀 Спінер</a>
 </body>
 </html>
